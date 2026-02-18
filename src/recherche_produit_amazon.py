@@ -14,12 +14,18 @@ driver = webdriver.Chrome(options=chrome_options)
 driver.get("https://amazon.fr")
 
 time.sleep(1)
+
+# Accepter les cookies
 driver.find_element(By.ID, "sp-cc-accept").click()
 
 try:
+    # Trouver la barre de recherche
     search_box = driver.find_element(By.ID, "twotabsearchtextbox")
+    # Effaccer ce qui est présent dans la barre de recherche
     search_box.clear()
-    search_box.send_keys("Display Pokémon")
+    # Objet de notre recherche écriture dans la barre
+    search_box.send_keys("Ordinateur fixe")
+    # Effectue l'action de recherche
     search_box.send_keys(Keys.ENTER)
 
 except Exception as e:
